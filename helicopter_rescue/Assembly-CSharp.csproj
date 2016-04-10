@@ -48,6 +48,7 @@
      <Compile Include="Assets\Scripts\BallDestroy.cs" />
      <Compile Include="Assets\Scripts\BallsManager.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\YellowBallCheck.cs" />
      <Compile Include="Assets\Scripts\YellowMover.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
