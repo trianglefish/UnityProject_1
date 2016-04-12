@@ -4,9 +4,9 @@ using System.Collections;
 public class YellowBallCheck : MonoBehaviour 
 {
 	
-	void  OnCollisionEnter2D (Collision2D ball)
+	void  OnTriggerEnter2D (Collider2D ball)
 	{
-		if (ball.gameObject.tag == "yellow_ball") {
+		if (ball.tag == "yellow_ball") {
 			Destroy (ball.gameObject);
 		}
 	}

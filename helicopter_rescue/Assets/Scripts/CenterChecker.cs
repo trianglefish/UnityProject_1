@@ -5,24 +5,22 @@ public class CenterChecker : MonoBehaviour {
 
 	GameObject ball;
 
-	void Start ()
+	void  OnTriggerEnter2D (Collider2D lastBall)
 	{
-		ball = GameObject.Find("Yellow_ball");
-	}
-
-
-	void  OnCollisionEnter2D (Collision2D ball)
-	{
-		if (ball.gameObject.tag == "yellow_ball") 
+		if (lastBall.tag == "yellow_ball") 
 		{
+			ball = lastBall.gameObject;
+			ball.transform.SetParent (transform);
 			TransformToZero ();
+			ball.GetComponent<YellowMover> ().stop = true;
 		}
 				
 	}
 
 	void TransformToZero ()
 	{
-		ball.transform.localPosition = new Vector3 (0, 0, 0);
+		ball.transform.localPosition = transform.position;
+
 	}
 
 }
