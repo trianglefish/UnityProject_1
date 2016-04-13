@@ -1,11 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\BallsManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\YellowMover.cs">
     <Files>
-      <File FileName="Assets\Scripts\BallsManager.cs" Line="31" Column="2" />
-      <File FileName="Assets\Scripts\PlayerController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\YellowMover.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\BallDestroy.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\YellowBallCheck.cs" Line="19" Column="1" />
+      <File FileName="Assets\Scripts\YellowMover.cs" Line="25" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
