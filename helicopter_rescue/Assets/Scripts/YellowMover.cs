@@ -5,7 +5,7 @@ public class YellowMover : MonoBehaviour
 {
 	public float speed;
 	public Vector3 direction;
-	public bool stop = false;
+	public bool moving = true;
 
 	/*Animator anim;
 
@@ -16,9 +16,9 @@ public class YellowMover : MonoBehaviour
 
 
 
-	void Update ()
+	void Update () //нихуя не понял
 	{
-		if (!stop) 
+		if (moving) 
 		{
 			transform.Translate (direction * speed * Time.deltaTime);
 		}

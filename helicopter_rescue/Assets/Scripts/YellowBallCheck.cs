@@ -7,7 +7,8 @@ public class YellowBallCheck : MonoBehaviour
 	void  OnTriggerEnter2D (Collider2D ball)
 	{
 		if (ball.tag == "yellow_ball") {
-			Destroy (ball.gameObject, 0.3f); //время смерти
+			ball.gameObject.GetComponent<YellowMover> ().moving = false; //запретил двигаться объекту
+			Destroy (ball.gameObject, 0.5f); //время до смерти 
 
 		}
 

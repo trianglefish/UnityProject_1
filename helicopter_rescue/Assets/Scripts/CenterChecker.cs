@@ -12,7 +12,8 @@ public class CenterChecker : MonoBehaviour {
 			ball = lastBall.gameObject;
 			ball.transform.SetParent (transform);
 			TransformToZero ();
-			ball.GetComponent<YellowMover> ().stop = true;
+			ball.GetComponent<YellowMover> ().moving = false;
+			print ("мама");
 		}
 				
 	}
