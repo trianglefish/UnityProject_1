@@ -4,6 +4,13 @@ using System.Collections;
 public class PlayerController : MonoBehaviour {
 
 	public float rotationPower;
+	[SerializeField]
+	private GameObject targetYellow;
+	[SerializeField]
+	private GameObject targetGreen;
+	[SerializeField]
+	private GameObject targetBlue; //G - g - 
+	private YellowMover ball;
 
 	void Start ()
 	{
@@ -16,6 +23,9 @@ public class PlayerController : MonoBehaviour {
 			RotateRight ();
 		if (Input.GetKey ("left"))
 			RotateLeft ();
+		if (Input.GetKey ("space") && ball != null) //null чтобы не вызывалась при пустой переменной
+			Fire ();
+		
 	}
 		
 	void RotateRight ()
@@ -27,5 +37,18 @@ public class PlayerController : MonoBehaviour {
 	{
 		transform.Rotate (0, 0, Time.deltaTime * rotationPower);
 	}
+
+	public void GetBall (YellowMover newBall)
+	{
+		ball = newBall;
+	}
+	void Fire ()
+	{
+		ball.direction = targetYellow.transform.position;
+		ball.moving = true;
+		ball = null;
+	}
+
+
 		
 }
