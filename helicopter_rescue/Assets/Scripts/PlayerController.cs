@@ -45,8 +45,10 @@ public class PlayerController : MonoBehaviour {
 	void Fire ()
 	{
 		ball.direction = targetYellow.transform.position;
+		ball.transform.parent = null;
 		ball.moving = true;
 		ball = null;
+
 	}
 
 

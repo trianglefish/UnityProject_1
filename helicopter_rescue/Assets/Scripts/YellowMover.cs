@@ -20,7 +20,7 @@ public class YellowMover : MonoBehaviour
 	{
 		if (moving) 
 		{
-			transform.Translate (direction * speed * Time.deltaTime);
+			transform.Translate (direction * speed * Time.deltaTime, Space.World);
 		}
 
 
