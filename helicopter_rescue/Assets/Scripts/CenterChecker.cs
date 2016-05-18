@@ -1,10 +1,16 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class CenterChecker : MonoBehaviour {
 
 	GameObject ball;
 	private PlayerController player; //чтобы обращаться к PlayerController
+	private int count;
+	public Text ballinsideText;
+
+
+
 
 
 	void  OnTriggerEnter2D (Collider2D lastBall)
@@ -16,6 +22,9 @@ public class CenterChecker : MonoBehaviour {
 			ball.transform.SetParent (transform);
 			TransformToZero ();
 			ball.GetComponent<YellowMover> ().moving = false;
+			count = count + 1;
+			SetBallInsideText ();
+			ballinsideText.GetComponent<Animator> ().SetTrigger ("ballInside");
 			print ("мама");
 		}
 				
@@ -24,6 +33,27 @@ public class CenterChecker : MonoBehaviour {
 	void Start()
 	{
 		player = GameObject.Find ("Player").GetComponent<PlayerController> (); //нашли гейм обжект.взяли его. класс
+		count = 0;
+		SetBallInsideText ();
+
+	}
+
+	public void SetBallInsideText ()
+	{
+		ballinsideText.text = "Balls inside: " + count.ToString() + "/5";
+		if (count >= 5) 
+		{
+			count = 0;
+		} 
+	}
+	public void SetBallFlewInsideText ()
+	{
+		count = count - 1;
+		ballinsideText.text = "Balls inside: " + count.ToString() + "/5";
+		if (count <= 0) 
+		{
+			count = 0;
+		}
 	}
 
 	void TransformToZero ()

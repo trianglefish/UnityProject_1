@@ -12,8 +12,10 @@ public class PlayerController : MonoBehaviour {
 	[SerializeField]
 	private GameObject targetBlue; //G - g - 
 	private YellowMover ball;
+	public CenterChecker bic;
 
-	public List<YellowMover> listOfBalls = new List<YellowMover> ();
+
+    public List<YellowMover> listOfBalls = new List<YellowMover> ();
 
 	void Start ()
 	{
@@ -46,14 +48,16 @@ public class PlayerController : MonoBehaviour {
 		ball = newBall;
 		listOfBalls.Add (newBall); //добавили новый шарик в список
 	}
+
 	void Fire ()
 	{
 		ball.direction = targetYellow.transform.position;
 		ball.transform.parent = null;
 		ball.moving = true;
 		listOfBalls.Remove (ball);//удалили шар из списка по фаеру
+		print("огонь");
+		bic.SetBallFlewInsideText ();
 		ball = null;
-
 		if (listOfBalls.Count > 0) 
 		{
 			ball = listOfBalls [listOfBalls.Count - 1];
@@ -61,6 +65,5 @@ public class PlayerController : MonoBehaviour {
 
 	}
 
-
-		
 }
+  
