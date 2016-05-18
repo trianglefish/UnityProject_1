@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour {
 
 	public float rotationPower;
-	[SerializeField]
+	[SerializeField] //приватные переменные в инспекторе показывались чтобы
 	private GameObject targetYellow;
 	[SerializeField]
 	private GameObject targetGreen;
@@ -12,18 +13,20 @@ public class PlayerController : MonoBehaviour {
 	private GameObject targetBlue; //G - g - 
 	private YellowMover ball;
 
+	public List<YellowMover> listOfBalls = new List<YellowMover> ();
+
 	void Start ()
 	{
 		
 	}
-
+		
 	void Update ()
 	{
 		if (Input.GetKey ("right"))
 			RotateRight ();
 		if (Input.GetKey ("left"))
 			RotateLeft ();
-		if (Input.GetKey ("space") && ball != null) //null чтобы не вызывалась при пустой переменной
+		if (Input.GetKeyDown ("space") && ball != null) //null чтобы не вызывалась при пустой переменной
 			Fire ();
 		
 	}
@@ -41,13 +44,20 @@ public class PlayerController : MonoBehaviour {
 	public void GetBall (YellowMover newBall)
 	{
 		ball = newBall;
+		listOfBalls.Add (newBall); //добавили новый шарик в список
 	}
 	void Fire ()
 	{
 		ball.direction = targetYellow.transform.position;
 		ball.transform.parent = null;
 		ball.moving = true;
+		listOfBalls.Remove (ball);//удалили шар из списка по фаеру
 		ball = null;
+
+		if (listOfBalls.Count > 0) 
+		{
+			ball = listOfBalls [listOfBalls.Count - 1];
+		}
 
 	}
 
