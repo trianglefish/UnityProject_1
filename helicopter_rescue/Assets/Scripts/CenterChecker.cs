@@ -8,10 +8,17 @@ public class CenterChecker : MonoBehaviour {
 	private PlayerController player; //чтобы обращаться к PlayerController
 	private int count;
 	public Text ballinsideText;
+	public TakeDamage td;
 
 
-
-
+	void Update ()
+	{
+		if (count > 2) {
+			td.TakeDmg ();
+		} else
+			td.EmptyOfBalls ();
+	}
+				
 
 	void  OnTriggerEnter2D (Collider2D lastBall)
 	{
@@ -25,6 +32,7 @@ public class CenterChecker : MonoBehaviour {
 			count = count + 1;
 			SetBallInsideText ();
 			ballinsideText.GetComponent<Animator> ().SetTrigger ("ballInside");
+			//td.TakeDmg ();
 			print ("мама");
 		}
 				
@@ -41,19 +49,19 @@ public class CenterChecker : MonoBehaviour {
 	public void SetBallInsideText ()
 	{
 		ballinsideText.text = "Balls inside: " + count.ToString() + "/5";
-		if (count >= 5) 
+		/*if (count >= 5) 
 		{
 			count = 0;
-		} 
+		} */
 	}
 	public void SetBallFlewInsideText ()
 	{
 		count = count - 1;
 		ballinsideText.text = "Balls inside: " + count.ToString() + "/5";
-		if (count <= 0) 
+		/*if (count <= 0) 
 		{
 			count = 0;
-		}
+		}*/
 	}
 
 	void TransformToZero ()
