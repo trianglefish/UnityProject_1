@@ -5,10 +5,10 @@ using UnityEngine.UI;
 public class TakeDamage : MonoBehaviour {
 
 	public Slider healthSlider;
-	public int startHealth;
-	public int currentHealth;
+	public float startHealth;
+	public float currentHealth;
 	public AudioClip deathClip;
-	public int hitPower;
+	public float hitPower;
 
 	void Awake()
 	{
@@ -17,19 +17,18 @@ public class TakeDamage : MonoBehaviour {
 
 	void Update()
 	{
-		if (damaged)
+		healthSlider.value = Mathf.Lerp(healthSlider.value, currentHealth, 1 * Time.deltaTime);
 	}
 
 	public void TakeDmg ()
 	{
-        GetComponent<Animator> ().SetTrigger ("FullOfBalls");
-		currentHealth -= hitPower;
+		GetComponent<Animator> ().SetBool ("takeDamage", true);
+		currentHealth -= hitPower * Time.deltaTime;
 		healthSlider.value = currentHealth;
-		bool damaged;
 	}
 
 	public void EmptyOfBalls ()
 	{
-		GetComponent<Animator> ().SetTrigger ("EmptyOfBalls");
+		GetComponent<Animator> ().SetBool ("takeDamage", false);
 	}
 }

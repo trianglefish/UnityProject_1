@@ -13,7 +13,7 @@ public class CenterChecker : MonoBehaviour {
 
 	void Update ()
 	{
-		if (count > 2) {
+		if (count > 1) {
 			td.TakeDmg ();
 		} else
 			td.EmptyOfBalls ();
