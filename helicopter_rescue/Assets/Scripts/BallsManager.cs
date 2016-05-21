@@ -6,7 +6,7 @@ public class BallsManager : MonoBehaviour
 	
 		public GameObject ballColor;   
 		public float spawnTime = 3f;            // How long between each spawn.
-		public Transform[] spawnPoints;         // An array of the spawn points this enemy can spawn from.
+		public Transform[] spawnPoints;         // An array of the spawn points this enemy can spawn from. 
 
 
 		void Start ()
@@ -24,7 +24,16 @@ public class BallsManager : MonoBehaviour
 
 			// Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.
 			Instantiate (ballColor, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation); 
-		}
+			
+
+		}	
+	     
+	public void StopSpawn ()
+	{
+		spawnTime = 0f;
+		print ("death");
+	}
+
 
 
 }

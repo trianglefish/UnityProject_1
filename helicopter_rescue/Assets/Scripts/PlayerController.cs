@@ -12,14 +12,23 @@ public class PlayerController : MonoBehaviour {
 	[SerializeField]
 	private GameObject targetBlue; //G - g - 
 	private YellowMover ball;
+
 	public CenterChecker bic;
+	public BallsManager bm;
+
+	bool fireEnable;
+	public AudioClip deathClip;
+	public AudioClip fireClip;
+
+
+	AudioSource playerAudio;
 
 
     public List<YellowMover> listOfBalls = new List<YellowMover> ();
 
-	void Start ()
+	void Awake ()
 	{
-		
+		playerAudio = GetComponent <AudioSource> (); //ссылка на компонт
 	}
 		
 	void Update ()
@@ -29,16 +38,15 @@ public class PlayerController : MonoBehaviour {
 		if (Input.GetKey ("left"))
 			RotateLeft ();
 		if (Input.GetKeyDown ("space") && ball != null) //null чтобы не вызывалась при пустой переменной
-			Fire ();
-		
+			Fire ();	
 	}
 		
-	void RotateRight ()
+	public void RotateRight ()
 	{
 		transform.Rotate (0, 0, Time.deltaTime * -rotationPower);
 	}
 
-	void RotateLeft ()
+	public void RotateLeft ()
 	{
 		transform.Rotate (0, 0, Time.deltaTime * rotationPower);
 	}
@@ -49,13 +57,14 @@ public class PlayerController : MonoBehaviour {
 		listOfBalls.Add (newBall); //добавили новый шарик в список
 	}
 
-	void Fire ()
+	public void Fire ()
 	{
 		ball.direction = targetYellow.transform.position;
+		playerAudio.clip = fireClip;
+		playerAudio.Play ();
 		ball.transform.parent = null;
 		ball.moving = true;
 		listOfBalls.Remove (ball);//удалили шар из списка по фаеру
-		print("огонь");
 		bic.SetBallFlewInsideText ();
 		ball = null;
 		if (listOfBalls.Count > 0) 
@@ -64,6 +73,14 @@ public class PlayerController : MonoBehaviour {
 		}
 
 	}
+
+	public void Death ()
+	{
+		rotationPower = 0;
+		bm.StopSpawn ();
+
+	}
+
 
 }
   
