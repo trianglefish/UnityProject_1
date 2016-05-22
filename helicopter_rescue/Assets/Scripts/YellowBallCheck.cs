@@ -17,6 +17,8 @@ public class YellowBallCheck : MonoBehaviour
 	public float currentHealth;
 	public float hitPower;
 
+	public HeartAnim heartAnim;
+
 
 
 	AudioSource ballDeathAudio;
@@ -35,6 +37,7 @@ public class YellowBallCheck : MonoBehaviour
 			Destroy (ball.gameObject, 0.5f); //время до смерти
 			currentHealth -= hitPower;
 			healthSlider.value = currentHealth;
+			heartAnim.HittingHeart ();
 			ballDeathAudio.clip = ballDeathClip;
 			ballDeathAudio.Play ();
 

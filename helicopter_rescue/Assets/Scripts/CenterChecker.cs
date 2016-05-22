@@ -11,7 +11,6 @@ public class CenterChecker : MonoBehaviour {
 	public Text ballinsideText;
 
 	public TakeDamage td;
-	public HeartAnim heartAnim;
 
 	public AudioClip insideClip; //сюда положим аудио с переменной insideClip
 	public AudioClip deathClip;
@@ -30,11 +29,6 @@ public class CenterChecker : MonoBehaviour {
 			td.TakeDmg ();
 		} else
 			td.EmptyOfBalls ();    
-		if (count > countMax) {
-			heartAnim.HittingHeart ();
-		} else {
-			heartAnim.NotHittingHeart ();
-		}
 	}
 
 	void  OnTriggerEnter2D (Collider2D lastBall)

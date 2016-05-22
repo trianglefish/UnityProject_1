@@ -45,18 +45,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\HeartAnim.cs" />
-     <Compile Include="Assets\MusicStop.cs" />
      <Compile Include="Assets\Scripts\BallDestroy.cs" />
      <Compile Include="Assets\Scripts\BallsManager.cs" />
      <Compile Include="Assets\Scripts\BlueBallCheck.cs" />
      <Compile Include="Assets\Scripts\CenterChecker.cs" />
      <Compile Include="Assets\Scripts\GreenBallCheck.cs" />
+     <Compile Include="Assets\Scripts\HeartAnim.cs" />
+     <Compile Include="Assets\Scripts\MainMenuButtons.cs" />
+     <Compile Include="Assets\Scripts\MusicStop.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\TakeDamage.cs" />
+     <Compile Include="Assets\Scripts\YelloColliderCheck.cs" />
      <Compile Include="Assets\Scripts\YellowBallCheck.cs" />
      <Compile Include="Assets\Scripts\YellowMover.cs" />
-     <Compile Include="Assets\YelloColliderCheck.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
