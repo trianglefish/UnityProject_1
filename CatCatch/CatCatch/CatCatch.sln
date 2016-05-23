@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{0A03F385-8165-704E-1179-2F8D72CB2C3F}") = "CatCatch", "Assembly-CSharp.csproj", "{ADC3563A-B560-B18E-0F69-0B6ADFA4B29D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ADC3563A-B560-B18E-0F69-0B6ADFA4B29D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADC3563A-B560-B18E-0F69-0B6ADFA4B29D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADC3563A-B560-B18E-0F69-0B6ADFA4B29D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADC3563A-B560-B18E-0F69-0B6ADFA4B29D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
